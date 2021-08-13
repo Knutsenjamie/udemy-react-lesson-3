@@ -7,11 +7,14 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
     constructor(props){
         super(props);
-        // The constructors job is now to only initialize state
+        // The first way to initialize state (including the constructor)
         this.state = { lat: null, errorMessage: '' };
     }
 
-    // componentDidMount now handles the geolocation fetching of the postion and error message. 
+    // The second way to initialize state (works the same without needing the constructor)
+    state = { lat: null, errorMessage: '' };
+
+
     componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             position => this.setState({ lat: position.coords.latitude }) ,
