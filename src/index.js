@@ -7,29 +7,17 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
     constructor(props){
         super(props);
-
-        // The first way to initialize state
+        // The constructors job is now to only initialize state
         this.state = { lat: null, errorMessage: '' };
-        
+    }
+
+    // componentDidMount now handles the geolocation fetching of the postion and error message. 
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
-            position => {
-                this.setState({ lat: position.coords.latitude });
-            },
-        
-            err => {
-                this.setState({ errorMessage: err.message });
-            }
+            position => this.setState({ lat: position.coords.latitude }) ,
+            err => this.setState({ errorMessage: err.message })   
         );
     }
-
-    componentDidMount() {
-        console.log('my component was rendered to the screen')
-    }
-
-    componentDidUpdate() {
-        console.log('my component updated and rerendered!')
-    }
-
 
         render() {
             if (this.state.errorMessage && !this.state.lat) {
