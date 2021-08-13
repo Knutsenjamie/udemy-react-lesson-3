@@ -24,16 +24,17 @@ class App extends React.Component {
 
 
 
-    render() {
-        return (
-            <div>
-                Lattitude: {this.state.lat}
-                <br/>
-                Error: {this.state.error}
-            </div>
-        );
+        render() {
+            if (this.state.errorMessage && !this.state.lat) {
+                return <div>Error: {this.state.errorMessage}</div>
+        }
+
+        if(!this.state.errorMessage && this.state.lat) {
+            return <div> Lattitude: {this.state.lat}</div>
+        }
+
+        return <div>Loading...</div>;
     }
-    // when making a return statement with multiple lines (return ();), don't forget to get rid of the semicolon at the end of the div, since you moved it to the parenthesis. Common mistake!
 }
 
 ReactDOM.render(
