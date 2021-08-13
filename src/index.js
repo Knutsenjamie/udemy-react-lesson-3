@@ -7,8 +7,8 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
     constructor(props){
         super(props);
-       
-     
+
+        // The first way to initialize state
         this.state = { lat: null, errorMessage: '' };
         
         window.navigator.geolocation.getCurrentPosition(
@@ -22,6 +22,13 @@ class App extends React.Component {
         );
     }
 
+    componentDidMount() {
+        console.log('my component was rendered to the screen')
+    }
+
+    componentDidUpdate() {
+        console.log('my component updated and rerendered!')
+    }
 
 
         render() {
