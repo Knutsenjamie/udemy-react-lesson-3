@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 
 
 
-//React requires you to define render()
+
 class App extends React.Component {
-    contructor(props){
-        //you always need to call super(props); when doing the constructor to initilize state
+    constructor(props){
         super(props);
-        // lat is latitude. null because we don't know what the lat is YET
+       
         this.state = { lat: null };
     }
 
@@ -20,7 +19,8 @@ class App extends React.Component {
             (err) => console.log(err)
         );
 
-        return <div>Lattitude: </div>
+        // how to reference state within JSX v
+        return <div>Lattitude: {this.state.lat}</div>;
     }
 }
 
