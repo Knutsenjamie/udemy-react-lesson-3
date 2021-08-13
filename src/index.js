@@ -5,13 +5,6 @@ import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
-        // The first way to initialize state (including the constructor)
-        this.state = { lat: null, errorMessage: '' };
-    }
-
-    // The second way to initialize state (works the same without needing the constructor)
     state = { lat: null, errorMessage: '' };
 
 
