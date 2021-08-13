@@ -14,12 +14,12 @@ class App extends React.Component {
 
 
     render() {
+        // never want to initialize state within render method. It will get called too frequently otherwise.
         window.navigator.geolocation.getCurrentPosition(
             (position) => console.log(position),
             (err) => console.log(err)
         );
 
-        // how to reference state within JSX v
         return <div>Lattitude: {this.state.lat}</div>;
     }
 }
